@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Todd Clarkston",
+    "slug": "toddclarkston",
+    "version": "2.0.0",
+    "scheme": "toddclarkston",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./public/favicon.png"
+    },
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
