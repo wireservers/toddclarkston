@@ -10,7 +10,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "0px 0px -5% 0px" });
 
   return (
-    <section id="about" className="relative py-32 px-6">
+    <section id="about" className="relative py-12 px-6">
       <div className="max-w-5xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -20,7 +20,7 @@ export default function About() {
           <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">
             About
           </p>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-12">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-10">
             Enterprise Scale, <span className="gradient-text">Startup Speed</span>
           </h2>
         </motion.div>
@@ -62,26 +62,34 @@ export default function About() {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { value: "20+", label: "Years Experience" },
-                { value: "15+", label: "Companies Worked For" },
-                { value: "~40", label: "WireServers Clients" },
-                { value: "4,000", label: "Users on the EHR Platform I Led" },
-              ].map((stat, i) => (
-                <div
-                  key={i}
-                  className="p-6 rounded-2xl bg-surface border border-border hover:border-accent/30 transition-all duration-300 group"
-                >
-                  <p className="text-3xl font-bold gradient-text mb-1">
-                    {stat.value}
-                  </p>
-                  <p className="text-muted text-sm">{stat.label}</p>
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.6 }}
+          className="mt-14 -mx-2 flex flex-wrap"
+        >
+          {[
+            { value: "20+", label: "Years", detail: "Enterprise software delivery" },
+            { value: "4,000", label: "EHR users", detail: "2,700 patients · 9 facilities" },
+            { value: "1,000", label: "Examiners", detail: "Federal Reserve, all 50 states" },
+            { value: "99%", label: "AI extraction", detail: "100 documents / < 1 minute" },
+            { value: "70+", label: "OSS components", detail: "400+ npm downloads" },
+            { value: "~40", label: "Clients", detail: "Through WireServers" },
+          ].map((stat) => (
+            <div key={stat.label} className="w-1/2 p-2 md:w-1/3 lg:w-1/6">
+              <div className="h-full p-5 rounded-2xl bg-surface border border-border hover:border-accent/30 transition-all duration-300">
+                <p className="text-4xl font-bold text-foreground">{stat.value}</p>
+                <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-cyan-400">
+                  {stat.label}
+                </p>
+                <p className="mt-2 text-muted text-sm">{stat.detail}</p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

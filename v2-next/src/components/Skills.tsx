@@ -15,13 +15,13 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: "0px 0px -5% 0px" });
 
   return (
-    <section id="skills" className="relative py-32 px-6">
+    <section id="skills" className="relative py-12 px-6">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="mb-16"
+          className="mb-10"
         >
           <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">
             Expertise

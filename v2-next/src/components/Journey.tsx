@@ -2,38 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
-const experiences = [
-  {
-    company: "CenterLight Healthcare (via C2Q)",
-    roles: [
-      {
-        title: "Application Developer III – Lead Architect / Tech Lead",
-        period: "Oct 2025 – Oct 2026",
-      },
-    ],
-    description:
-      "Architecting and leading a greenfield Electronic Health Record platform for the nation's largest not-for-profit PACE program, serving about 4,000 users and 2,700 patients across nine facilities. Leading a team of five, with Azure AI, HL7/FHIR, and a custom CIAM/SSO server.",
-    highlight: true,
-  },
-  {
-    company: "WireServers",
-    roles: [
-      {
-        title: "Owner & Principal Consultant / Lead Architect",
-        period: "Jun 2009 – Aug 2025",
-      },
-    ],
-    description:
-      "Owned and led a technology company (the legal entity changed over the years, my ownership never did) delivering freelance development, marketing, brand development, and project management solutions. Ran alongside the employment roles below.",
-  },
-  {
-    company: "Federal Reserve Bank of Kansas City",
-    roles: [{ title: "Sr. Software Engineer", period: "Jul 2014 – Mar 2018" }],
-    description:
-      "Developed critical financial systems at one of the twelve Federal Reserve Banks.",
-  },
-];
+import { experience as experiences } from "@/data/experience";
 
 const earlierCareer = [
   { company: "WellDyneRx", dates: "2018 – 2019" },
@@ -54,7 +23,7 @@ function TimelineItem({
   exp,
   index,
 }: {
-  exp: (typeof experiences)[0];
+  exp: (typeof experiences)[number];
   index: number;
 }) {
   const ref = useRef(null);
@@ -74,7 +43,7 @@ function TimelineItem({
       {/* Timeline dot */}
       <div
         className={`absolute left-0 top-2 w-2.5 h-2.5 rounded-full -translate-x-1 ${
-          exp.highlight
+          index === 0
             ? "bg-accent shadow-lg shadow-accent/50"
             : "bg-border group-hover:bg-accent/60"
         } transition-colors duration-300`}
@@ -82,7 +51,7 @@ function TimelineItem({
 
       <div
         className={`p-6 rounded-2xl border transition-all duration-300 ${
-          exp.highlight
+          index === 0
             ? "bg-surface border-accent/20 glow"
             : "bg-surface/50 border-border hover:border-accent/20"
         }`}
@@ -90,30 +59,56 @@ function TimelineItem({
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
           <h3
             className={`text-xl font-bold tracking-tight ${
-              exp.highlight ? "gradient-text" : ""
+              index === 0 ? "gradient-text" : ""
             }`}
           >
             {exp.company}
           </h3>
+          <span className="text-muted font-mono text-xs">{exp.dates}</span>
         </div>
 
-        <div className="space-y-1 mb-4">
-          {exp.roles.map((role, i) => (
-            <div
-              key={i}
-              className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3"
+        <p className="text-foreground font-medium text-sm">{exp.role}</p>
+        <p className="text-muted font-mono text-xs mb-4">{exp.location}</p>
+
+        <p className="text-muted text-base leading-relaxed mb-4">{exp.summary}</p>
+
+        {exp.highlights.length > 0 && (
+          <ul className="space-y-3 mb-4">
+            {exp.highlights.map((h, i) => (
+              <li key={i} className="flex gap-3 text-muted text-sm leading-relaxed">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {exp.tracks?.map((track) => (
+          <div key={track.title} className="mb-4">
+            <h4 className="text-foreground font-semibold text-sm mb-2">
+              {track.title}
+            </h4>
+            <ul className="space-y-2">
+              {track.bullets.map((b, i) => (
+                <li key={i} className="flex gap-3 text-muted text-sm leading-relaxed">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted/60" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <div className="flex flex-wrap gap-2 pt-2">
+          {exp.tags.map((t) => (
+            <span
+              key={t}
+              className="px-3 py-1 rounded-full border border-border text-xs text-muted"
             >
-              <span className="text-foreground font-medium text-sm">
-                {role.title}
-              </span>
-              <span className="text-muted font-mono text-xs">
-                {role.period}
-              </span>
-            </div>
+              {t}
+            </span>
           ))}
         </div>
-
-        <p className="text-muted text-sm leading-relaxed">{exp.description}</p>
       </div>
     </motion.div>
   );
@@ -124,13 +119,13 @@ export default function Journey() {
   const inView = useInView(ref, { once: true, margin: "0px 0px -5% 0px" });
 
   return (
-    <section id="journey" className="relative py-32 px-6">
+    <section id="journey" className="relative py-12 px-6">
       <div className="max-w-4xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="mb-16"
+          className="mb-10"
         >
           <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">
             Career
@@ -142,7 +137,7 @@ export default function Journey() {
 
         <div>
           {experiences.map((exp, i) => (
-            <TimelineItem key={exp.company} exp={exp} index={i} />
+            <TimelineItem key={exp.id} exp={exp} index={i} />
           ))}
         </div>
 
