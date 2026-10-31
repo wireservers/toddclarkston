@@ -80,12 +80,12 @@ export default function About() {
             { value: "~40", label: "Clients", detail: "Through WireServers" },
           ].map((stat) => (
             <div key={stat.label} className="w-1/2 p-2 md:w-1/3 lg:w-1/6">
-              <div className="h-full p-5 rounded-2xl bg-surface border border-border hover:border-accent/30 transition-all duration-300">
-                <p className="text-4xl font-bold text-foreground">{stat.value}</p>
-                <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-cyan-400">
+              <div className="h-full p-5 rounded-2xl bg-[#0d101e] border border-slate-700/60 hover:border-cyan-400/40 transition-all duration-300">
+                <p className="font-display text-4xl font-bold text-slate-100">{stat.value}</p>
+                <p className="mt-1 font-stat text-[11px] uppercase tracking-widest text-cyan-400">
                   {stat.label}
                 </p>
-                <p className="mt-2 text-muted text-sm">{stat.detail}</p>
+                <p className="mt-2 text-slate-400 text-sm">{stat.detail}</p>
               </div>
             </div>
           ))}
