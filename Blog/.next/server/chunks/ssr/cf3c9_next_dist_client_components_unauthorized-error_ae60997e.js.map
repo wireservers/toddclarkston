@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":["file:///Users/toddclarkston/source/wireservers/internal/toddclarkston/Original/node_modules/.pnpm/next%4015.4.0-canary.87_react-dom%4019.0.0-rc-02c0e824-20241028_react%4019.0.0-rc-02c0e824-20_8f7bcf47f0c1bf51bc71d91d19182f06/node_modules/next/src/client/components/unauthorized-error.tsx"],"sourcesContent":["import { HTTPAccessErrorFallback } from './http-access-fallback/error-fallback'\n\nexport default function Unauthorized() {\n  return (\n    <HTTPAccessErrorFallback\n      status={401}\n      message=\"You're not authorized to access this page.\"\n    />\n  )\n}\n"],"names":["Unauthorized","HTTPAccessErrorFallback","status","message"],"mappings":";;;;+BAEA,WAAA;;;eAAwBA;;;;+BAFgB;AAEzB,SAASA;IACtB,OAAA,WAAA,GACE,CAAA,GAAA,YAAA,GAAA,EAACC,eAAAA,uBAAuB,EAAA;QACtBC,QAAQ;QACRC,SAAQ;;AAGd","ignoreList":[0],"debugId":null}}]
+}
