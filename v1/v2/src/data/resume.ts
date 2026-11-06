@@ -46,8 +46,8 @@ export const profile = {
   emailHref: "mailto:todd@toddclarkston.com",
   linkedin: "https://www.linkedin.com/in/toddclarkston/",
   linkedinLabel: "linkedin.com/in/toddclarkston",
-  github: "https://github.com/tclarkston",
-  githubLabel: "github.com/tclarkston",
+  github: "https://github.com/wireservers",
+  githubLabel: "github.com/wireservers",
   photo: "/images/TC-44.jpg",
   photoAlt: "/images/TC-22.jpg",
   currentRole: "Lead Architect, CenterLight Healthcare (Oct 2025 – Oct 2026)",
@@ -79,7 +79,7 @@ export const competencies: { area: string; items: string[] }[] = [
   },
   {
     area: "Python",
-    items: ["Python", "Flask", "Django", "ETL imports", "Data mapping", "AWS Lambda", "Azure Functions"],
+    items: ["Python", "Flask", "Django", "Django admin", "REST APIs", "ETL imports", "Data mapping", "Third-party integrations", "AWS Lambda", "Azure Functions"],
   },
   {
     area: "Front End & Mobile",
@@ -87,7 +87,7 @@ export const competencies: { area: string; items: string[] }[] = [
   },
   {
     area: "Cloud & DevOps",
-    items: ["Microsoft Azure", "App Service", "Azure Functions", "Azure SQL", "Cosmos DB", "API Management", "Entra ID", "Key Vault", "Bicep / ARM", "Azure DevOps", "GitHub CI/CD", "Deployment slots", "AWS Lambda", "Docker", "Kubernetes / AKS"],
+    items: ["Microsoft Azure", "App Service", "Azure Functions", "Azure SQL", "Cosmos DB", "API Management", "Entra ID", "Key Vault", "Bicep / ARM", "Azure DevOps", "GitHub CI/CD", "Deployment slots", "AWS Lambda", "API Gateway", "S3", "EC2", "CloudFormation / SAM", "Serverless Framework", "Docker", "Kubernetes / AKS"],
   },
   {
     area: "Security & Compliance",
@@ -142,8 +142,9 @@ export const experience: Role[] = [
     highlights: [
       "Delivered enterprise web, mobile, desktop, API, and cloud applications across healthcare, financial services, e-commerce, and SaaS.",
       "Hands-on full-stack development with C#/.NET, ASP.NET Core, Angular, React, React Native, Next.js, Node.js, Python (Flask, Django), SQL platforms, and Azure/AWS.",
-      "Built Python services with Flask and Django, ETL imports and data mapping, Azure Functions in Python, and an AWS Lambda geolocation service in Python.",
+      "Built and deployed Python services on AWS: three years of Flask and Django REST APIs, a Django web app and admin, ETL imports and data mapping, and third-party integrations for Series Code; an AWS Lambda geolocation service in Python; and Azure Functions in Python.",
       "Ran Azure DevOps CI/CD and the full SDLC, deploying products to production multiple times a week; Docker and AKS for containerized microservices; AWS Lambda, API Gateway, CloudFormation, S3, EC2, Cognito, Route 53.",
+      "Deployed AWS applications hands-on across Lambda, API Gateway, S3, and EC2, using CI/CD pipelines (Azure DevOps and GitHub), CloudFormation and SAM templates, the Serverless Framework, and the AWS CLI.",
       "Defined Azure infrastructure in Bicep and ARM templates, managed secrets and key rotation in Azure Key Vault, and rolled back with deployment-slot swaps or by redeploying the previous build.",
       "Integrated OpenAI for document OCR, classification, summarization, and structured extraction; designed multi-model architectures with provider fallback and token tracking.",
       "Built AI-assisted engineering workflows with Claude Code, custom skills, MCP server integrations, automated code review, and test generation.",
@@ -155,7 +156,7 @@ export const experience: Role[] = [
         title: "Selected client engagements",
         bullets: [
           "eLivelihood — care-management dashboard for families; DevOps, full-stack, and tech lead (Angular, Firebase, Ionic).",
-          "Series Code — three years of Python services with Flask and Django.",
+          "Series Code — three years of Python on AWS: Flask and Django REST APIs, a Django web app and admin, ETL and data mapping, and third-party integrations.",
           "Geolocation check-in app — geocaching-style AWS Lambda service in Python; hardware at each location site authenticates check-ins.",
           "Swoovy — full-stack engineer and project manager (Python, Django, React Native, PostgreSQL).",
           "Sent & Secure — end-to-end encrypted desktop app (Xamarin, WPF, MAUI, XAML, Entity Framework, SQL).",
@@ -165,7 +166,7 @@ export const experience: Role[] = [
         ],
       },
     ],
-    tags: ["Consulting", "C# / .NET", "React / Angular", "Azure & AWS", "OpenAI", "Team lead"],
+    tags: ["Consulting", "C# / .NET", "Python", "Azure & AWS", "OpenAI", "Team lead"],
   },
   {
     id: "welldyne",
@@ -312,12 +313,12 @@ export const earlierCareer: { company: string; role: string; dates: string }[] =
 
 export const skills: SkillGroup[] = [
   { group: "C# / .NET", years: "20+ yrs", items: [".NET Framework", ".NET Core / .NET 10", "ASP.NET Core", "MVC", "Web API", "Entity Framework", "LINQ", "Dapper", "ADO.NET"] },
-  { group: "Python", years: "3+ yrs", items: ["Flask", "Django", "ETL imports", "Data mapping", "AWS Lambda", "Azure Functions"] },
+  { group: "Python", years: "3+ yrs", items: ["Flask", "Django", "Django admin", "REST APIs", "ETL imports", "Data mapping", "Integrations", "AWS Lambda", "Azure Functions"] },
   { group: "Web & Mobile", years: "10+ yrs", items: ["Angular (JS–18)", "React", "React Native", "React Native Web", "Next.js", "TypeScript", "NgRx", "RxJS"] },
   { group: "Databases", years: "20+ yrs", items: ["SQL Server", "PostgreSQL", "MySQL", "Oracle", "Cosmos DB", "MongoDB", "DynamoDB"] },
   { group: "Microsoft Azure", years: "10 yrs", items: ["App Service", "Functions", "Azure SQL", "API Management", "Entra ID", "Key Vault", "Azure FHIR", "Service Bus", "AKS"] },
   { group: "DevOps & SDLC", years: "10 yrs", items: ["Azure DevOps", "GitHub Actions", "CI/CD", "Bicep / ARM", "Deployment slots & rollback", "Docker", "Kubernetes", "PowerShell", "Application Insights"] },
-  { group: "AWS", years: "3 yrs", items: ["Lambda", "API Gateway", "CloudFormation", "S3", "EC2", "Cognito", "Route 53"] },
+  { group: "AWS", years: "3 yrs", items: ["Lambda", "API Gateway", "S3", "EC2", "CloudFormation / SAM", "Serverless Framework", "AWS CLI", "CI/CD deployments", "Cognito", "Route 53"] },
   { group: "Messaging & Integration", years: "8 yrs", items: ["RabbitMQ", "Azure Service Bus", "Pub/sub", "REST / JSON", "SOAP / XML", "Webhooks"] },
   { group: "Healthcare", years: "5 yrs", items: ["EHR / EMR", "HIPAA", "HL7", "FHIR", "PACE", "Clinical workflows"] },
   { group: "AI / LLM", years: "3 yrs", items: ["Azure AI Foundry", "Azure OpenAI", "OpenAI API", "Llama", "Claude Code", "MCP", "Agentic workflows"] },
